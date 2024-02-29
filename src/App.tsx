@@ -6,6 +6,7 @@ import Auth from "./Auth/Auth";
 import HomePage from "./Home";
 import InspirationPage from "./Inspiration";
 import CreatePage from "./Create";
+import PostPage from "./Post";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path={"/auth"} element={<Auth />} />
           <Route path={"/create"} element={<CreatePage />} />
           <Route path={"/inspiration"} element={<InspirationPage />} />
+          <Route path={"/post/:id"} element={<PostPage />} />
         </Routes>
       </StyledPageContainer>
     </>
