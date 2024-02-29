@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./shared/components/NavBar/Navbar";
+import { StyledPageContainer } from "./shared/containers/PageContainer/Styles";
+import Auth from "./Auth/Auth";
+import HomePage from "./Home";
+import InspirationPage from "./Inspiration";
+import CreatePage from "./Create";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <StyledPageContainer>
+        <Routes>
+          <Route path={"/"} element={<HomePage />} />
+          <Route path={"/auth"} element={<Auth />} />
+          <Route path={"/create"} element={<CreatePage />} />
+          <Route path={"/inspiration"} element={<InspirationPage />} />
+        </Routes>
+      </StyledPageContainer>
+    </>
   );
 }
 
