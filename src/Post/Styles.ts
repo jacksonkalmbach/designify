@@ -13,6 +13,17 @@ export const ImageAndItemsContainer = styled.div`
   width: 100%;
   gap: 12px;
   margin-bottom: 24px;
+  margin-top: 12px;
+`;
+
+export const ItemLinksContainer = styled.div`
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex-grow: 1;
+  gap: 8px;
+  overflow: scroll;
 `;
 
 export const PostImageContainer = styled.div`

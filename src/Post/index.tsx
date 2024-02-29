@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import {
   ImageAndItemsContainer,
+  ItemLinksContainer,
   MorePostsContainer,
   PostImageContainer,
   PostPageContainer,
@@ -9,17 +10,41 @@ import {
 import PostPreview from "./PostPreview";
 import Button from "../shared/components/Button";
 import UserCard from "../shared/components/UserCard";
+import ItemLink from "./ItemLink";
 
 const PostPage = () => {
   const navigate = useNavigate();
   return (
     <PostPageContainer>
-      <Button icon="arrowLeft" onClick={() => navigate("/inspiration")} />
-      <UserCard name="jacksonkalmbach" username="jacksonkalmbach" />
+      <Button
+        icon="arrowLeft"
+        title="Back"
+        onClick={() => navigate("/inspiration")}
+      />
       <ImageAndItemsContainer>
         <PostImageContainer />
-        <div>list of items</div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: "1",
+          }}
+        >
+          <h3>SHOP THE LOOK</h3>
+          <ItemLinksContainer>
+            <ItemLink />
+            <ItemLink />
+            <ItemLink />
+            <ItemLink />
+            <ItemLink />
+            <ItemLink />
+            <ItemLink />
+            <ItemLink />
+            <ItemLink />
+          </ItemLinksContainer>
+        </div>
       </ImageAndItemsContainer>
+      <UserCard name="jacksonkalmbach" username="jacksonkalmbach" />
       <div
         style={{
           display: "flex",

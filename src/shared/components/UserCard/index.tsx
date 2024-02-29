@@ -29,7 +29,6 @@ const StyledUserCard = styled.div`
   box-sizing: border-box;
   gap: 6px;
   padding: 8px;
-  border: 1px solid gray;
 `;
 
 const StyledImage = styled.img`
