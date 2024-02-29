@@ -1,17 +1,21 @@
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   ImageAndItemsContainer,
   MorePostsContainer,
   PostImageContainer,
   PostPageContainer,
 } from "./Styles";
+
 import PostPreview from "./PostPreview";
+import Button from "../shared/components/Button";
+import UserCard from "../shared/components/UserCard";
 
 const PostPage = () => {
-  const { id } = useParams();
+  const navigate = useNavigate();
   return (
     <PostPageContainer>
-      <h3>[creator]</h3>
+      <Button icon="arrowLeft" onClick={() => navigate("/inspiration")} />
+      <UserCard name="jacksonkalmbach" username="jacksonkalmbach" />
       <ImageAndItemsContainer>
         <PostImageContainer />
         <div>list of items</div>
@@ -24,7 +28,7 @@ const PostPage = () => {
         }}
       >
         <div>More from [creator]</div>
-        <div>View all</div>
+        <div onClick={() => navigate("/jacksonkalmbach")}>View all</div>
       </div>
       <MorePostsContainer>
         <PostPreview id={3} />

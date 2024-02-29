@@ -7,6 +7,7 @@ import HomePage from "./Home";
 import InspirationPage from "./Inspiration";
 import CreatePage from "./Create";
 import PostPage from "./Post";
+import ProfilePage from "./Profile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path={"/create"} element={<CreatePage />} />
           <Route path={"/inspiration"} element={<InspirationPage />} />
           <Route path={"/post/:id"} element={<PostPage />} />
+          <Route path={"/:userId"} element={<ProfilePage />} />
         </Routes>
       </StyledPageContainer>
     </>

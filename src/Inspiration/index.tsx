@@ -3,7 +3,7 @@ import PostPreview from "../Post/PostPreview";
 
 const InspirationPage = () => {
   const posts = [];
-  for (let i = 1; i < 20; i++) {
+  for (let i = 1; i <= 20; i++) {
     posts.push(<PostPreview id={i} />);
   }
   return (
