@@ -2,6 +2,7 @@ import { StyledInspirationPageContainer } from "./Styles";
 import PostPreview from "../Post/PostPreview";
 
 import sohoImage from "../shared/assets/soho-loft.jpeg";
+import DiscoverCategories from "./components/DiscoverCategories";
 
 const InspirationPage = () => {
   const posts = [];
@@ -19,7 +20,7 @@ const InspirationPage = () => {
         gap: "20px",
       }}
     >
-      <div>Categories</div>
+      <DiscoverCategories />
 
       <StyledInspirationPageContainer>{posts}</StyledInspirationPageContainer>
     </div>

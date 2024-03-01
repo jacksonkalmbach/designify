@@ -1,5 +1,6 @@
 export const color = {
   borderColor: "#e0e0e0",
+  backgroundLight: "#f5f5f5",
 };
 
 export const sizes = {

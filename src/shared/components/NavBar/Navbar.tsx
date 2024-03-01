@@ -4,8 +4,10 @@ import {
   StyledLinksContainer,
   StyledNavLinkContainer,
 } from "./Styles";
+
 import Logo from "../Logo";
 import SearchBar from "../SearchBar";
+import Button from "../Button";
 
 const HOME_NAVLINKS: { title: string; path: string }[] = [
   {
@@ -17,6 +19,10 @@ const HOME_NAVLINKS: { title: string; path: string }[] = [
     path: "create",
   },
   {
+    title: "Pricing",
+    path: "pricing",
+  },
+  {
     title: "For Designers",
     path: "designers",
   },
@@ -24,6 +30,7 @@ const HOME_NAVLINKS: { title: string; path: string }[] = [
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <NavBarContainer>
@@ -36,11 +43,18 @@ const Navbar = () => {
         ) : (
           <></>
         )}
+        {pathname === "/" && (
+          <Button
+            text="Login"
+            variant="primary"
+            onClick={() => navigate("/auth")}
+          />
+        )}
       </StyledLinksContainer>
 
       {pathname === "/inspiration" && (
         <>
-          <NavLink title="Create" path="inspiration/all" />
+          <NavLink title="Create" path="create" />
           <SearchBar />
         </>
       )}

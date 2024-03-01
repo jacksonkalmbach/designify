@@ -41,6 +41,7 @@ const PostPage = () => {
       <Button
         icon="arrowLeft"
         text="Back"
+        variant="ghost"
         onClick={() => navigate("/inspiration")}
       />
       <ImageAndItemsContainer>

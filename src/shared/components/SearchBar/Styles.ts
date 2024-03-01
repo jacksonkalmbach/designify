@@ -6,7 +6,6 @@ export const SearchBarContainer = styled.div`
   display: flex;
   gap: 12px;
   width: 100%;
-  border-radius: 999px;
   box-sizing: border-box;
   padding: 12px;
   align-items: center;

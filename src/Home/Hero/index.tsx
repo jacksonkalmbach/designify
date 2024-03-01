@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { bodyTextRegular, headerBold } from "../../shared/utils/fonts";
+import { bodyTextRegular, headerBoldLarge } from "../../shared/utils/fonts";
 import sohoImg from "../../shared/assets/soho-loft.jpeg";
 import Button from "../../shared/components/Button";
 import { useNavigate } from "react-router-dom";
@@ -10,13 +10,20 @@ const HeroSection = () => {
   return (
     <StyledHeroContainer>
       <StyledHeaderContainer>
-        <StyledHeader>Find Inspiration, </StyledHeader>
+        <StyledHeader>Find Inspiration. </StyledHeader>
         <StyledHeader>Create Your Space.</StyledHeader>
         <SubTitleText>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod.
         </SubTitleText>
-        <Button text="Get Started" onClick={() => navigate("auth")} />
+        <div style={{ display: "flex", gap: "8px" }}>
+          <Button
+            text="Learn More"
+            onClick={() => navigate("about")}
+            variant="outlined"
+          />
+          <Button text="Get Started" onClick={() => navigate("auth")} />
+        </div>
       </StyledHeaderContainer>
       <StyledImageContainer>
         <StyledHeroImage src={sohoImg} alt="" />
@@ -73,14 +80,13 @@ const StyledImageContainer = styled.div`
   overflow: hidden;
   position: absolute;
   right: 0;
-  top: 70px;
+  top: 90px;
 `;
 
 const StyledHeader = styled.h1`
   color: black;
-  font-size: 3rem;
   text-align: center;
-  ${headerBold}
+  ${headerBoldLarge}
   margin: 0;
 `;
 

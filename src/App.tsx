@@ -8,6 +8,7 @@ import InspirationPage from "./Inspiration";
 import CreatePage from "./Create";
 import PostPage from "./Post";
 import ProfilePage from "./Profile";
+import PricingPage from "./Pricing";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path={"/"} element={<HomePage />} />
           <Route path={"/auth"} element={<Auth />} />
+          <Route path={"/pricing"} element={<PricingPage />} />
           <Route path={"/create"} element={<CreatePage />} />
           <Route path={"/inspiration"} element={<InspirationPage />} />
           <Route path={"/post/:id"} element={<PostPage />} />

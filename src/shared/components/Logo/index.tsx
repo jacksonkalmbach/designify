@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { StyledLogoContainer } from "./Styles";
-import { headerBold } from "../../utils/fonts";
+import { headerBoldMedium } from "../../utils/fonts";
 import styled from "styled-components";
 
 interface Props {
@@ -17,8 +17,7 @@ const Logo = ({ variant }: Props) => {
 };
 
 const StyledLogoText = styled.h1`
-  font-size: 2rem;
-  ${headerBold}
+  ${headerBoldMedium}
 `;
 
 export default Logo;

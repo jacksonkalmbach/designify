@@ -1,4 +1,3 @@
-import React from "react";
 import { MdArrowBack, MdClose, MdFavorite } from "react-icons/md";
 import { ButtonContainer } from "./Styles";
 
@@ -8,6 +7,7 @@ interface Props {
   text?: string;
   icon?: IconName;
   onClick: () => void;
+  variant?: "primary" | "outlined" | "ghost";
 }
 
 const Icons: Record<IconName, JSX.Element> = {
@@ -16,9 +16,9 @@ const Icons: Record<IconName, JSX.Element> = {
   favorite: <MdFavorite />,
 };
 
-const Button = ({ text, icon, onClick }: Props) => {
+const Button = ({ text, icon, onClick, variant }: Props) => {
   return (
-    <ButtonContainer onClick={onClick}>
+    <ButtonContainer onClick={onClick} variant={variant}>
       {icon && Icons[icon]}
       {text && text}
     </ButtonContainer>
