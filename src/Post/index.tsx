@@ -7,6 +7,8 @@ import {
   PostPageContainer,
 } from "./Styles";
 
+import sohoLoftImage from "../shared/assets/soho-loft.jpeg";
+
 import PostPreview from "./PostPreview";
 import Button from "../shared/components/Button";
 import UserCard from "../shared/components/UserCard";
@@ -22,7 +24,13 @@ const PostPage = () => {
         onClick={() => navigate("/inspiration")}
       />
       <ImageAndItemsContainer>
-        <PostImageContainer />
+        <PostImageContainer>
+          <img
+            src={sohoLoftImage}
+            alt="Post"
+            style={{ height: "100%", width: "100%" }}
+          />
+        </PostImageContainer>
         <div
           style={{
             display: "flex",

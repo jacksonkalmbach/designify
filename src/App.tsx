@@ -20,7 +20,7 @@ function App() {
           <Route path={"/create"} element={<CreatePage />} />
           <Route path={"/inspiration"} element={<InspirationPage />} />
           <Route path={"/post/:id"} element={<PostPage />} />
-          <Route path={"/:userId"} element={<ProfilePage />} />
+          <Route path={"/:username"} element={<ProfilePage />} />
         </Routes>
       </StyledPageContainer>
     </>
