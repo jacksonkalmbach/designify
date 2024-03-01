@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ItemLink = () => {
+const ItemLink = ({ ...link }) => {
+  const { id, url, description } = link;
   return (
     <ItemLinkContainer>
       <div>Photo</div>
-      <div>Title</div>
+      <Link to={url}>{description}</Link>
     </ItemLinkContainer>
   );
 };
