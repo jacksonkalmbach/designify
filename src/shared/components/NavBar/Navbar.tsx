@@ -54,8 +54,10 @@ const Navbar = () => {
 
       {pathname === "/inspiration" && (
         <>
+          <div style={{ width: "70%" }}>
+            <SearchBar />
+          </div>
           <NavLink title="Create" path="create" />
-          <SearchBar />
         </>
       )}
     </NavBarContainer>
