@@ -9,7 +9,20 @@ const InspirationPage = () => {
     posts.push(<PostPreview id={i} imageUrl={i === 2 ? sohoImage : ""} />);
   }
   return (
-    <StyledInspirationPageContainer>{posts}</StyledInspirationPageContainer>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "20px",
+      }}
+    >
+      <div>Categories</div>
+
+      <StyledInspirationPageContainer>{posts}</StyledInspirationPageContainer>
+    </div>
   );
 };
 

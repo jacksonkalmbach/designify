@@ -40,7 +40,7 @@ const PostPage = () => {
     <PostPageContainer>
       <Button
         icon="arrowLeft"
-        title="Back"
+        text="Back"
         onClick={() => navigate("/inspiration")}
       />
       <ImageAndItemsContainer>

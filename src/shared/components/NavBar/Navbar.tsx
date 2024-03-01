@@ -38,7 +38,12 @@ const Navbar = () => {
         )}
       </StyledLinksContainer>
 
-      {pathname === "/inspiration" && <SearchBar />}
+      {pathname === "/inspiration" && (
+        <>
+          <NavLink title="Create" path="inspiration/all" />
+          <SearchBar />
+        </>
+      )}
     </NavBarContainer>
   );
 };

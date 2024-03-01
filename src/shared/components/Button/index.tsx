@@ -5,7 +5,7 @@ import { ButtonContainer } from "./Styles";
 type IconName = "arrowLeft" | "close" | "favorite";
 
 interface Props {
-  title?: string;
+  text?: string;
   icon?: IconName;
   onClick: () => void;
 }
@@ -16,11 +16,11 @@ const Icons: Record<IconName, JSX.Element> = {
   favorite: <MdFavorite />,
 };
 
-const Button = ({ title, icon, onClick }: Props) => {
+const Button = ({ text, icon, onClick }: Props) => {
   return (
     <ButtonContainer onClick={onClick}>
       {icon && Icons[icon]}
-      {title && title}
+      {text && text}
     </ButtonContainer>
   );
 };
