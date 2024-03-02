@@ -1,5 +1,12 @@
 import { css } from "styled-components";
 
+export const subTitleRegular = css`
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+`;
+
 export const bodyTextRegular = css`
   font-family: "Poppins", sans-serif;
   font-weight: 400;

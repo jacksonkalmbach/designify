@@ -7,7 +7,7 @@ export const StyledPageContainer = styled.div`
   min-height: calc(100vh - ${sizes.navbarHeight}px);
   margin-top: 70px;
   box-sizing: border-box;
-  padding: 0 24px 24px 24px;
+  padding: 0;
   justify-content: center;
   align-items: center;
 `;

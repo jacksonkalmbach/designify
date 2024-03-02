@@ -19,8 +19,7 @@ const HeroSection = () => {
         <StyledHeader>Find Inspiration. </StyledHeader>
         <StyledHeader>Create Your Space.</StyledHeader>
         <SubTitleText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod.
+          Craft Unique Spaces Where Your Ideas Take Form with Every Design.
         </SubTitleText>
         <StyledButtonContainer>
           <Button text="Get Started" onClick={() => navigate("auth")} />

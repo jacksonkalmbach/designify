@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import {
+  ButtonContainer,
   ImageAndItemsContainer,
   ItemLinksContainer,
   MorePostsContainer,
@@ -38,12 +39,14 @@ const PostPage = () => {
 
   return (
     <PostPageContainer>
-      <Button
-        icon="arrowLeft"
-        text="Back"
-        variant="ghost"
-        onClick={() => navigate("/inspiration")}
-      />
+      <ButtonContainer>
+        <Button
+          icon="arrowLeft"
+          text="Back"
+          variant="ghost"
+          onClick={() => navigate("/inspiration")}
+        />
+      </ButtonContainer>
       <ImageAndItemsContainer>
         <PostImageContainer>
           <img
@@ -52,7 +55,13 @@ const PostPage = () => {
             style={{ height: "100%", width: "100%" }}
           />
         </PostImageContainer>
-        <UserCard name="jacksonkalmbach" username="jacksonkalmbach" />
+        <UserCard
+          name="jacksonkalmbach"
+          username="jacksonkalmbach"
+          variant="large"
+          size="large"
+          handleClick={() => navigate("/jacksonkalmbach")}
+        />
         <div
           style={{
             display: "flex",

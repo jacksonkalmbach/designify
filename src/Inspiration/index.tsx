@@ -18,6 +18,8 @@ const InspirationPage = () => {
         flexDirection: "column",
         alignItems: "center",
         gap: "20px",
+        padding: "24px",
+        boxSizing: "border-box",
       }}
     >
       <DiscoverCategories />

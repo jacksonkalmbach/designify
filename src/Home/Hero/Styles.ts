@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { bodyTextRegular, headerBoldLarge } from "../../shared/utils/fonts";
+import {
+  bodyTextRegular,
+  headerBoldLarge,
+  subTitleRegular,
+} from "../../shared/utils/fonts";
 
 export const StyledButtonContainer = styled.div`
   width: 150px;
@@ -43,10 +47,10 @@ export const StyledHeaderContainer = styled.div`
 
 export const SubTitleText = styled.p`
   color: black;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-align: center;
   margin: 0;
-  ${bodyTextRegular}
+  ${subTitleRegular}
   margin-bottom: 1rem;
   margin-top: 1rem;
 `;

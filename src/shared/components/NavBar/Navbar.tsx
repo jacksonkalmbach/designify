@@ -11,6 +11,7 @@ import {
 import Logo from "../Logo";
 import SearchBar from "../SearchBar";
 import Button from "../Button";
+import UserCard from "../UserCard";
 
 const HOME_NAVLINKS: { title: string; path: string }[] = [
   {
@@ -37,15 +38,22 @@ const Navbar = () => {
 
   return (
     <NavBarContainer>
-      <Logo variant="navbar" />
-      <StyledLinksContainer>
-        {pathname === "/" ? (
-          HOME_NAVLINKS.map((link) => (
-            <NavLink key={link.title} title={link.title} path={link.path} />
-          ))
-        ) : (
-          <></>
-        )}
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <StyledHambugerMenu>
+          <MdMenu size={30} />
+        </StyledHambugerMenu>
+        <Logo variant="navbar" />
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+        <StyledLinksContainer>
+          {pathname === "/" ? (
+            HOME_NAVLINKS.map((link) => (
+              <NavLink key={link.title} title={link.title} path={link.path} />
+            ))
+          ) : (
+            <></>
+          )}
+        </StyledLinksContainer>
         {pathname === "/" && (
           <div style={{ width: "100px" }}>
             <Button
@@ -55,15 +63,21 @@ const Navbar = () => {
             />
           </div>
         )}
-      </StyledLinksContainer>
-      <StyledHambugerMenu>
-        <MdMenu size={30} />
-      </StyledHambugerMenu>
+      </div>
 
       {pathname === "/inspiration" && (
-        <StyledSearchContainer>
-          <SearchBar />
-        </StyledSearchContainer>
+        <>
+          <StyledSearchContainer>
+            <SearchBar />
+          </StyledSearchContainer>
+          <UserCard
+            name="Jackson Kalmbach"
+            username="jacksonkalmbach"
+            variant="small"
+            size="large"
+            handleClick={() => console.log("User Card Clicked")}
+          />
+        </>
       )}
     </NavBarContainer>
   );

@@ -17,6 +17,10 @@ export const NavBarContainer = styled.div`
   background-color: white;
   gap: 16px;
   border-bottom: 1px solid ${color.borderColor};
+
+  @media (max-width: 768px) {
+    padding: 0px 24px;
+  }
 `;
 
 export const StyledLinksContainer = styled.div`
