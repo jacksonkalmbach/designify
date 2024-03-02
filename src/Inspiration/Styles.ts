@@ -4,7 +4,7 @@ export const StyledInspirationPageContainer = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
-  gap: 12px;
+  gap: 24px;
   grid-template-columns: repeat(1, 1fr);
   box-sizing: border-box;
 

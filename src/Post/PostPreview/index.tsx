@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import {
+  PostCreator,
   PostCreatorAndLikes,
+  PostCreatorImage,
+  PostCreatorName,
   StyledImageContainer,
   StyledPostContainer,
 } from "./Styles";
@@ -28,7 +31,11 @@ const PostPreview = ({ id, imageUrl }: Props) => {
         />
       </StyledImageContainer>
       <PostCreatorAndLikes>
-        <div>jacksonkalmbach</div>
+        <PostCreator>
+          <PostCreatorImage src="https://media.licdn.com/dms/image/D4E03AQFseatAMo8cnA/profile-displayphoto-shrink_800_800/0/1679333450208?e=1714608000&v=beta&t=s9Iv2U39h4fMAhGg3XisMhrh1c-Ioih8hu57_r3QMdc" />
+          <PostCreatorName>jacksonkalmbach</PostCreatorName>
+        </PostCreator>
+
         <Likes count={10} />
       </PostCreatorAndLikes>
     </StyledPostContainer>

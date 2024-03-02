@@ -21,6 +21,13 @@ export const bodyTextLarge = css`
   font-size: 20px;
 `;
 
+export const bodyTextSmall = css`
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+`;
+
 export const headerBoldLarge = css`
   font-family: "Fraunces", serif;
   font-optical-sizing: auto;

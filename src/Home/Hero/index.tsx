@@ -17,12 +17,16 @@ const HeroSection = () => {
           eiusmod.
         </SubTitleText>
         <div style={{ display: "flex", gap: "8px" }}>
-          <Button
-            text="Learn More"
-            onClick={() => navigate("about")}
-            variant="outlined"
-          />
-          <Button text="Get Started" onClick={() => navigate("auth")} />
+          <div style={{ width: "150px" }}>
+            <Button
+              text="Learn More"
+              onClick={() => navigate("about")}
+              variant="outlined"
+            />
+          </div>
+          <div style={{ width: "150px" }}>
+            <Button text="Get Started" onClick={() => navigate("auth")} />
+          </div>
         </div>
       </StyledHeaderContainer>
       <StyledImageContainer>

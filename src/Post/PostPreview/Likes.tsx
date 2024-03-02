@@ -1,5 +1,6 @@
 import { IoMdHeartEmpty } from "react-icons/io";
 import styled from "styled-components";
+import { bodyTextSmall } from "../../shared/utils/fonts";
 
 interface LikesProps {
   count: number;
@@ -18,7 +19,7 @@ const StyledLikes = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 14px;
+  ${bodyTextSmall}
 `;
 
 export default Likes;

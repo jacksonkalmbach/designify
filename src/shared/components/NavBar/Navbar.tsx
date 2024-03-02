@@ -44,11 +44,13 @@ const Navbar = () => {
           <></>
         )}
         {pathname === "/" && (
-          <Button
-            text="Login"
-            variant="primary"
-            onClick={() => navigate("/auth")}
-          />
+          <div style={{ width: "100px" }}>
+            <Button
+              text="Login"
+              variant="primary"
+              onClick={() => navigate("/auth")}
+            />
+          </div>
         )}
       </StyledLinksContainer>
 

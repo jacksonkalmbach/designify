@@ -11,7 +11,8 @@ export const ButtonContainer = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: fit-content;
+  width: 100%;
+  height: 40px;
   padding: 12px;
   border: none;
   background-color: #2a2a2a;

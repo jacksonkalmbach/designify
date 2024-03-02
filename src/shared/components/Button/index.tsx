@@ -1,7 +1,8 @@
 import { MdArrowBack, MdClose, MdFavorite } from "react-icons/md";
+import { FcGoogle } from "react-icons/fc";
 import { ButtonContainer } from "./Styles";
 
-type IconName = "arrowLeft" | "close" | "favorite";
+type IconName = "arrowLeft" | "close" | "favorite" | "google";
 
 interface Props {
   text?: string;
@@ -14,6 +15,7 @@ const Icons: Record<IconName, JSX.Element> = {
   arrowLeft: <MdArrowBack style={{ width: "20px", height: "20px" }} />,
   close: <MdClose />,
   favorite: <MdFavorite />,
+  google: <FcGoogle />,
 };
 
 const Button = ({ text, icon, onClick, variant }: Props) => {
