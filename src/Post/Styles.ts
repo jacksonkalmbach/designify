@@ -14,6 +14,10 @@ export const ImageAndItemsContainer = styled.div`
   gap: 12px;
   margin-bottom: 24px;
   margin-top: 12px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ItemLinksContainer = styled.div`
@@ -31,6 +35,11 @@ export const PostImageContainer = styled.div`
   height: 600px;
   background-color: #f5f5f5;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const MorePostsContainer = styled.div`
@@ -39,4 +48,8 @@ export const MorePostsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;

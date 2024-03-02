@@ -52,6 +52,7 @@ const PostPage = () => {
             style={{ height: "100%", width: "100%" }}
           />
         </PostImageContainer>
+        <UserCard name="jacksonkalmbach" username="jacksonkalmbach" />
         <div
           style={{
             display: "flex",
@@ -67,7 +68,6 @@ const PostPage = () => {
           </ItemLinksContainer>
         </div>
       </ImageAndItemsContainer>
-      <UserCard name="jacksonkalmbach" username="jacksonkalmbach" />
       <div
         style={{
           display: "flex",

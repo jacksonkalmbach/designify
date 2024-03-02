@@ -16,6 +16,11 @@ export const StyledAuthFormContainer = styled.div`
   gap: 12px;
   width: 400px;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0px 24px;
+  }
 `;
 
 export const StyledAuthForm = styled.form`
@@ -30,6 +35,10 @@ export const StyledAuthHeader = styled.h1`
   ${headerBoldMedium}
   margin-bottom: 32px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const ORDivider = styled.div`
@@ -38,6 +47,10 @@ export const ORDivider = styled.div`
   gap: 12px;
   width: 100%;
   ${bodyTextRegular}
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const AuthBodyText = styled.p`
