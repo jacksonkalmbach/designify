@@ -1,5 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { StyledPostContainer } from "./Styles";
+import {
+  PostCreatorAndLikes,
+  StyledImageContainer,
+  StyledPostContainer,
+} from "./Styles";
+import { IoMdHeartEmpty } from "react-icons/io";
+import Likes from "./Likes";
 
 interface Props {
   id: number;
@@ -13,12 +19,18 @@ const PostPreview = ({ id, imageUrl }: Props) => {
   };
 
   return (
-    <StyledPostContainer key={id} onClick={() => handleClick(id)}>
-      <img
-        src={imageUrl}
-        alt="Post"
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
+    <StyledPostContainer key={id}>
+      <StyledImageContainer onClick={() => handleClick(id)}>
+        <img
+          src={imageUrl}
+          alt="Post"
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </StyledImageContainer>
+      <PostCreatorAndLikes>
+        <div>jacksonkalmbach</div>
+        <Likes count={10} />
+      </PostCreatorAndLikes>
     </StyledPostContainer>
   );
 };
