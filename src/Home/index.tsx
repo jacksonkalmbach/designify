@@ -66,6 +66,10 @@ const SampleImageContainer = styled.div`
   background-color: #f4f4f4;
   height: 300px;
   width: 400px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export default HomePage;

@@ -1,8 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { MdMenu } from "react-icons/md";
 import {
   NavBarContainer,
+  StyledHambugerMenu,
   StyledLinksContainer,
   StyledNavLinkContainer,
+  StyledSearchContainer,
 } from "./Styles";
 
 import Logo from "../Logo";
@@ -53,14 +56,14 @@ const Navbar = () => {
           </div>
         )}
       </StyledLinksContainer>
+      <StyledHambugerMenu>
+        <MdMenu size={30} />
+      </StyledHambugerMenu>
 
       {pathname === "/inspiration" && (
-        <>
-          <div style={{ width: "70%" }}>
-            <SearchBar />
-          </div>
-          <NavLink title="Create" path="create" />
-        </>
+        <StyledSearchContainer>
+          <SearchBar />
+        </StyledSearchContainer>
       )}
     </NavBarContainer>
   );

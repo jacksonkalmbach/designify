@@ -24,9 +24,32 @@ export const StyledLinksContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 24px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const StyledHambugerMenu = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const StyledNavLinkContainer = styled.div`
   cursor: pointer;
   ${bodyTextRegular}
+`;
+
+export const StyledSearchContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

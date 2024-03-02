@@ -46,7 +46,6 @@ const DiscoverCategories = () => {
 };
 
 const StyledCategory = styled.div<{ isSelected: boolean }>`
-  font-size: 20px;
   cursor: pointer;
   background-color: ${(props) =>
     props.isSelected ? color.backgroundLight : ""};
@@ -57,10 +56,16 @@ const StyledCategory = styled.div<{ isSelected: boolean }>`
   &:hover {
     color: black;
   }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
 `;
 
 const StyledCategories = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
   width: 50%;
   align-items: center;
@@ -68,6 +73,12 @@ const StyledCategories = styled.div`
   margin: 0 20px;
   padding: 20px 0;
   box-sizing: border-box;
+  overflow-x: auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    gap: 10px;
+  }
 `;
 
 export default DiscoverCategories;

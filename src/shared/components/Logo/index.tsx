@@ -18,6 +18,10 @@ const Logo = ({ variant }: Props) => {
 
 const StyledLogoText = styled.h1`
   ${headerBoldMedium}
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export default Logo;
