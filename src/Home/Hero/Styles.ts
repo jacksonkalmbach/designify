@@ -64,7 +64,7 @@ export const StyledHeroContainer = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 768px) {
-    height: 60vh;x
+    height: 60vh;
     flex-direction: column;
   }
 `;
