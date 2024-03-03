@@ -21,7 +21,6 @@ export const StyledHeaderContainer = styled.div`
   position: absolute;
   box-sizing: border-box;
   left: 100px;
-  top: 35%;
   width: 35%;
   display: flex;
   flex-direction: column;
@@ -62,6 +61,7 @@ export const StyledHeroContainer = styled.div`
   justify-content: center;
   height: calc(80vh);
   box-sizing: border-box;
+  width: 100vw;
 
   @media (max-width: 768px) {
     height: 60vh;
@@ -78,10 +78,11 @@ export const StyledHeroImage = styled.img`
 export const StyledImageContainer = styled.div`
   display: flex;
   width: 70%;
+  height: 70%
   overflow: hidden;
   position: absolute;
   right: 0;
-  top: 90px;
+  top: 50px;
 
   @media (max-width: 768px) {
     display: none;

@@ -26,10 +26,6 @@ const HOME_NAVLINKS: { title: string; path: string }[] = [
     title: "Pricing",
     path: "pricing",
   },
-  {
-    title: "For Designers",
-    path: "designers",
-  },
 ];
 
 const Navbar = () => {

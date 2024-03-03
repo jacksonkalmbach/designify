@@ -40,7 +40,7 @@ const InspirationPage = () => {
       <>
         <FiltersAndSortsContainer>
           <Dropdown
-            options={["New", "Popular", "Following"]}
+            options={["Popular", "New", "Following"]}
             defaultOption="Popular"
           />
           <DiscoverCategories />

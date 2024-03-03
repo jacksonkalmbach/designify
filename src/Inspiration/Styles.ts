@@ -40,7 +40,6 @@ export const LoadingText = styled.p`
 
 export const FiltersAndSortsContainer = styled.div`
   display: flex;
-  position: relative;
   flex-direction: row;
   justify-content: start;
   align-items: center;
