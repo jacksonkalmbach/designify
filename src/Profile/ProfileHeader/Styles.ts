@@ -8,7 +8,7 @@ export const ProfileHeaderContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: 70%;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 export const ProfileHeaderContent = styled.div`
@@ -44,7 +44,7 @@ export const ProfileHeaderDetails = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const ProfileHeaderName = styled.h1`

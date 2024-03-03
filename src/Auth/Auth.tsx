@@ -19,7 +19,7 @@ import {
 import {
   checkUserExistsInDatabase,
   createUserInDatabase,
-  getUserFromDatabase,
+  getUserFromDatabaseByUid,
 } from "../utils/user/userDatabaseUtils";
 import { useNavigate } from "react-router-dom";
 
@@ -46,7 +46,7 @@ const Auth = () => {
         );
         localStorage.setItem("designify_user", JSON.stringify(newUser));
       } else {
-        const user = await getUserFromDatabase(uid);
+        const user = await getUserFromDatabaseByUid(uid);
         localStorage.setItem("designify_user", JSON.stringify(user));
       }
       navigate("/inspiration");

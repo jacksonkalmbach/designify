@@ -10,7 +10,17 @@ import {
 } from "./Styles";
 import Button from "../../shared/components/Button";
 
-const ProfileHeader = () => {
+interface ProfileHeaderProps {
+  firstName: string;
+  lastName: string;
+  username: string;
+}
+
+const ProfileHeader = ({
+  firstName,
+  lastName,
+  username,
+}: ProfileHeaderProps) => {
   return (
     <ProfileHeaderContainer>
       <ProfileHeaderContent>
@@ -19,7 +29,7 @@ const ProfileHeader = () => {
             <ProfileHeaderImage src="https://media.licdn.com/dms/image/D4E03AQFseatAMo8cnA/profile-displayphoto-shrink_800_800/0/1679333450208?e=1715212800&v=beta&t=8c0ZQaKEjyVaLbIOJLpfZW0GtrzR8qV2_scsXGVUIuM" />
           </ProfileHeaderImageContainer>
           <ProfileHeaderDetails>
-            <ProfileHeaderName>Jackson Kalmbach</ProfileHeaderName>
+            <ProfileHeaderName>{firstName + " " + lastName} </ProfileHeaderName>
             <div
               style={{
                 width: "100%",
@@ -29,21 +39,27 @@ const ProfileHeader = () => {
                 alignItems: "center",
               }}
             >
-              <ProfileHeaderText>jacksonkalmbach</ProfileHeaderText>
-              <div
-                style={{ display: "flex", gap: "10px", alignItems: "center" }}
-              >
-                <ProfileHeaderText>20 Followers</ProfileHeaderText>
-                <span>•</span>
-                <ProfileHeaderText>50 Following</ProfileHeaderText>
+              <ProfileHeaderText>{username}</ProfileHeaderText>
+              <>
+                <div
+                  style={{ display: "flex", gap: "10px", alignItems: "center" }}
+                >
+                  <ProfileHeaderText>20 Followers</ProfileHeaderText>
+                  <span>•</span>
+                  <ProfileHeaderText>50 Following</ProfileHeaderText>
+                </div>
+              </>
+              <div style={{ marginTop: "10px" }}>
+                <Button
+                  text="Edit Profile"
+                  onClick={() => {}}
+                  variant="outlined"
+                />
               </div>
             </div>
           </ProfileHeaderDetails>
         </ProfileNameAndImage>
       </ProfileHeaderContent>
-      <div>
-        <Button text="Edit Profile" onClick={() => {}} />
-      </div>
     </ProfileHeaderContainer>
   );
 };

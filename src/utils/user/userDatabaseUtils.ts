@@ -30,8 +30,19 @@ export const createUserInDatabase = async (
   return userCreated;
 };
 
-export const getUserFromDatabase = async (uid: string) => {
+export const getUserFromDatabaseByUid = async (uid: string) => {
   const response = await fetch(`http://localhost:3001/users/uid/${uid}`);
+  const user = await response.json();
+  return user;
+};
+
+export const getUserFromDatabaseByUsername = async (
+  username: string | undefined
+) => {
+  if (username === undefined) {
+    return;
+  }
+  const response = await fetch(`http://localhost:3001/users/${username}`);
   const user = await response.json();
   return user;
 };
