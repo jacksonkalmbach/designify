@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { bodyTextRegular } from "../shared/utils/fonts";
 
 export const StyledInspirationPageContainer = styled.div`
   display: grid;
@@ -22,4 +23,17 @@ export const StyledInspirationPageContainer = styled.div`
       1fr
     ); /* 4 columns for large desktops and up */
   }
+`;
+
+export const PostPreviewSkeleton = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 300px;
+`;
+
+export const LoadingText = styled.p`
+  ${bodyTextRegular}
+  margin: 0;
+  padding: 0;
 `;
