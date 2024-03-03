@@ -35,6 +35,8 @@ const HOME_NAVLINKS: { title: string; path: string }[] = [
 const Navbar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const user = localStorage.getItem("designify_user");
+  const userObj = user ? JSON.parse(user) : null;
 
   return (
     <NavBarContainer>
@@ -54,22 +56,40 @@ const Navbar = () => {
             <></>
           )}
         </StyledLinksContainer>
-        {pathname === "/" && (
-          <div style={{ width: "100px" }}>
-            <Button
-              text="Login"
-              variant="primary"
-              onClick={() => navigate("/auth")}
+        {pathname === "/" || pathname === "/pricing" ? (
+          userObj ? (
+            <UserCard
+              name={userObj.firstName}
+              username={userObj.username}
+              variant="small"
+              size="large"
+              handleClick={() => console.log("User Card Clicked")}
             />
-          </div>
+          ) : (
+            <div style={{ width: "100px" }}>
+              <Button
+                text="Login"
+                variant="primary"
+                onClick={() => navigate("/auth")}
+              />
+            </div>
+          )
+        ) : (
+          <></>
         )}
       </div>
 
-      {pathname === "/inspiration" && (
+      {pathname !== "/" && (
         <>
+          <>
+            <NavLink title="Inspiration" path="/inspiration" />
+            <NavLink title="Create" path="/create" />
+          </>
+
           <StyledSearchContainer>
             <SearchBar />
           </StyledSearchContainer>
+
           <UserCard
             name="Jackson Kalmbach"
             username="jacksonkalmbach"

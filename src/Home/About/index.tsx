@@ -10,7 +10,7 @@ const sections = [
     text: "Dive into a curated collection of interior designs. From modern minimalist to rustic charm, find styles that speak to you.",
     buttonText: "Find Inspiration",
     image: scandiKitchen,
-    link: "/inspiration",
+    link: "inspiration",
     alignText: "left",
   },
   {
@@ -18,7 +18,7 @@ const sections = [
     text: "Explore a variety of styles and designs. Find the perfect fit for your home and create a space that is uniquely yours.",
     buttonText: "Create a Design",
     image: farmhouseKitchen,
-    link: "/styles",
+    link: "create",
     alignText: "right",
   },
   {
@@ -26,7 +26,7 @@ const sections = [
     text: "Got a design you’re proud of? Share it with the Designify community or on your social networks. Get feedback, suggestions, and collaborate with others to refine your creation.",
     buttonText: "Get Started",
     image: bauhausLivingRoom,
-    link: "/auth",
+    link: "auth",
     alignText: "left",
   },
 ];

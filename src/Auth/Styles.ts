@@ -3,10 +3,11 @@ import { bodyTextRegular, headerBoldMedium } from "../shared/utils/fonts";
 
 export const StyledAuthPageContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100%;
+  height: calc(100vh - 50px);
 `;
 
 export const StyledAuthFormContainer = styled.div`

@@ -5,7 +5,5 @@ export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 400px;
-  border: 1px solid ${color.borderColor};
+  border-right: 1px solid ${color.borderColor};
 `;
-
-

@@ -6,7 +6,7 @@ export const PostPageContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 0 24px;
+  padding: 24px;
 `;
 
 export const ButtonContainer = styled.div`
