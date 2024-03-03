@@ -1,6 +1,10 @@
-import { headerBoldMedium } from "../shared/utils/fonts";
 import styled from "styled-components";
 
-export const ProfileName = styled.h1`
-  ${headerBoldMedium}
+export const ProfileWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: 24px;
+  flex-direction: column;
+  align-items: center;
 `;

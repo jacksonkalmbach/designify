@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProfileName } from "./Styles";
+import {
+
+  ProfileWrapper,
+} from "./Styles";
+import ProfileHeader from "./ProfileHeader";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -24,7 +28,14 @@ const ProfilePage = () => {
   }, [username]);
 
   return (
-    <div>{user !== "" ? <ProfileName>{user}</ProfileName> : "loading..."}</div>
+    <ProfileWrapper>
+      <ProfileHeader />
+      <div>
+        <div>Designs</div>
+        <div>Lookbooks</div>
+        <div>Likes</div>
+      </div>
+    </ProfileWrapper>
   );
 };
 
