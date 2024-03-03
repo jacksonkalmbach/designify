@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
+import "@radix-ui/themes/styles.css";
 import Navbar from "./shared/components/NavBar/Navbar";
 import { StyledPageContainer } from "./shared/containers/PageContainer/Styles";
 import Auth from "./Auth/Auth";
@@ -11,6 +12,7 @@ import PostPage from "./Post";
 import ProfilePage from "./Profile";
 import PricingPage from "./Pricing";
 import { useEffect } from "react";
+import { Theme } from "@radix-ui/themes";
 
 function App() {
   const navigate = useNavigate();
@@ -23,18 +25,20 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <StyledPageContainer>
-        <Routes>
-          <Route path={"/"} element={<HomePage />} />
-          <Route path={"/auth"} element={<Auth />} />
-          <Route path={"/pricing"} element={<PricingPage />} />
-          <Route path={"/create"} element={<CreatePage />} />
-          <Route path={"/inspiration"} element={<InspirationPage />} />
-          <Route path={"/post/:id"} element={<PostPage />} />
-          <Route path={"/:username"} element={<ProfilePage />} />
-        </Routes>
-      </StyledPageContainer>
+      <Theme>
+        <Navbar />
+        <StyledPageContainer>
+          <Routes>
+            <Route path={"/"} element={<HomePage />} />
+            <Route path={"/auth"} element={<Auth />} />
+            <Route path={"/pricing"} element={<PricingPage />} />
+            <Route path={"/create"} element={<CreatePage />} />
+            <Route path={"/inspiration"} element={<InspirationPage />} />
+            <Route path={"/post/:id"} element={<PostPage />} />
+            <Route path={"/:username"} element={<ProfilePage />} />
+          </Routes>
+        </StyledPageContainer>
+      </Theme>
     </>
   );
 }

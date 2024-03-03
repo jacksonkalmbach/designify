@@ -1,4 +1,7 @@
-import { StyledInspirationPageContainer } from "./Styles";
+import {
+  FiltersAndSortsContainer,
+  StyledInspirationPageContainer,
+} from "./Styles";
 import SkeletonPostPreview from "../Post/PostPreview/SkeletonPostPreview";
 import { SquareLoader } from "react-spinners";
 import PostPreview from "../Post/PostPreview";
@@ -6,6 +9,8 @@ import sohoImage from "../shared/assets/soho-loft.jpeg";
 import DiscoverCategories from "./components/DiscoverCategories";
 
 import styled from "styled-components";
+import { DropdownMenu } from "@radix-ui/themes";
+import Dropdown from "../shared/components/Dropdown";
 
 const InspirationPage = () => {
   const posts: any = [];
@@ -33,7 +38,13 @@ const InspirationPage = () => {
       }}
     >
       <>
-        <DiscoverCategories />
+        <FiltersAndSortsContainer>
+          <Dropdown
+            options={["New", "Popular", "Following"]}
+            defaultOption="Popular"
+          />
+          <DiscoverCategories />
+        </FiltersAndSortsContainer>
         <StyledInspirationPageContainer>
           {posts.length > 0 ? posts : skeletons}
         </StyledInspirationPageContainer>

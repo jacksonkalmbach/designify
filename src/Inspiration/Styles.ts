@@ -37,3 +37,13 @@ export const LoadingText = styled.p`
   margin: 0;
   padding: 0;
 `;
+
+export const FiltersAndSortsContainer = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+`;

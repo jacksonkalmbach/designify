@@ -64,6 +64,9 @@ const StyledCategory = styled.div<{ isSelected: boolean }>`
 `;
 
 const StyledCategories = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   width: 100%;
   justify-content: space-between;
