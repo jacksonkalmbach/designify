@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   ProfileHeaderContainer,
   ProfileHeaderContent,
@@ -21,6 +22,7 @@ const ProfileHeader = ({
   lastName,
   username,
 }: ProfileHeaderProps) => {
+  const navigate = useNavigate();
   return (
     <ProfileHeaderContainer>
       <ProfileHeaderContent>
@@ -52,8 +54,8 @@ const ProfileHeader = ({
               <div style={{ marginTop: "10px" }}>
                 <Button
                   text="Edit Profile"
-                  onClick={() => {}}
                   variant="outlined"
+                  onClick={() => navigate(`/${username}/edit`)}
                 />
               </div>
             </div>

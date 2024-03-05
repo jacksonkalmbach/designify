@@ -52,3 +52,12 @@ export const headerBoldMedium = css`
   font-size: 36px;
   font-variation-settings: "SOFT" 0, "WONK" 0;
 `;
+
+export const headerBoldSmall = css`
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+`;

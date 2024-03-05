@@ -26,6 +26,9 @@ export const AboutTextContainer = styled(motion.div)<AboutProps>`
 
   @media (max-width: 768px) {
     width: 80%;
+    right: 0;
+    left: 0;
+    transform-x: (-50%);
   }
 `;
 
@@ -34,6 +37,11 @@ export const TextAndImageContainer = styled.div`
   position: relative;
   width: 100%;
   height: 500px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border: 1px solid red;
+  }
 `;
 
 export const AboutText = styled.p`
@@ -61,6 +69,11 @@ export const AboutImageContainer = styled(motion.div)<AboutProps>`
   height: 500px;
   box-sizing: border-box;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    position: relative;
+    width: 100%;
+  }
 `;
 
 export const AboutTitle = styled.h1`

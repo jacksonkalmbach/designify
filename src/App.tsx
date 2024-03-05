@@ -13,6 +13,9 @@ import ProfilePage from "./Profile";
 import PricingPage from "./Pricing";
 import { useEffect } from "react";
 import { Theme } from "@radix-ui/themes";
+import EditProfile from "./Profile/EditProfile";
+import GeneralProfileInformation from "./Profile/EditProfile/components/General";
+import AccountInformation from "./Profile/EditProfile/components/Account";
 
 function App() {
   const navigate = useNavigate();
@@ -36,6 +39,13 @@ function App() {
             <Route path={"/inspiration"} element={<InspirationPage />} />
             <Route path={"/post/:id"} element={<PostPage />} />
             <Route path={"/:username"} element={<ProfilePage />} />
+            <Route path={"/:username/edit"} element={<EditProfile />}>
+              <Route index element={<GeneralProfileInformation />} />
+              <Route path={"account"} element={<AccountInformation />} />
+              <Route path={"social"} element={<>Social</>} />
+              <Route path={"notifications"} element={<>Notifications</>} />
+              <Route path={"billing"} element={<>Billing</>} />
+            </Route>
           </Routes>
         </StyledPageContainer>
       </Theme>
