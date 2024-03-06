@@ -1,27 +1,46 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProfileWrapper } from "./Styles";
-import { getUserFromDatabaseByUsername } from "../utils/user/userDatabaseUtils";
-import { User } from "../types/userTypes";
+import {
+  getAllUserPostsFromDatabaseByUsername,
+  getUserFromDatabaseByUsername,
+} from "../utils/user/userDatabaseUtils";
+import { UserType } from "../types/userTypes";
 
 import ProfileHeader from "./ProfileHeader";
 import ProfileMedia from "./ProfileMedia";
 
 const ProfilePage = () => {
   const { username } = useParams();
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
+  const [userPosts, setUserPosts] = useState<any[]>([]);
+  const currentUserString = localStorage.getItem("designify_user");
+  const currentUser = currentUserString ? JSON.parse(currentUserString) : null;
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const user = await getUserFromDatabaseByUsername(username);
-        setUser(user);
+        if (currentUser && currentUser.username === username) {
+          const userData = await getUserFromDatabaseByUsername(username);
+          setUser(userData);
+        }
       } catch (error) {
-        console.error("Failed to fetch user:", error);
+        console.error("Failed to fetch user: ", error);
       }
     };
+
+    const fetchUserPosts = async () => {
+      try {
+        const userPosts = await getAllUserPostsFromDatabaseByUsername(username);
+        setUserPosts(userPosts);
+      } catch (error) {
+        console.error("Failed to fetch user posts:", error);
+      }
+    };
+
     fetchUser();
-  }, [username]);
+    fetchUserPosts();
+  }, []);
 
   return (
     <ProfileWrapper>

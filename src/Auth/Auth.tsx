@@ -73,10 +73,14 @@ const Auth = () => {
           <Separator />
         </ORDivider>
         <StyledAuthForm>
-          <InputField placeholder="Email" type="email" />
-          <InputField placeholder="Password" type="password" />
+          <InputField placeholder="Email" type="email" label="Email Address" />
+          <InputField placeholder="Password" type="password" label="Password" />
           {isSignup && (
-            <InputField placeholder="Confirm Password" type="password" />
+            <InputField
+              placeholder="Confirm Password"
+              type="password"
+              label="Confirm Password"
+            />
           )}
           <Button
             text={isSignup ? "Create Account" : "Sign In"}

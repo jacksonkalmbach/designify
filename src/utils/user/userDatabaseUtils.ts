@@ -46,3 +46,11 @@ export const getUserFromDatabaseByUsername = async (
   const user = await response.json();
   return user;
 };
+
+export const getAllUserPostsFromDatabaseByUsername = async (
+  username: string | undefined
+) => {
+  const response = await fetch(`http://localhost:3001/posts/user/${username}`);
+  const posts = await response.json();
+  return posts;
+};
