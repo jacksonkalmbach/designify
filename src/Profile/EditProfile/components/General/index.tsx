@@ -15,8 +15,18 @@ const GeneralProfileInformation = () => {
     <>
       {user && (
         <>
-          <InputField placeholder={user.email} type="text" label="Username" />
-          <InputField placeholder="Email" type="text" label="Email Address" />
+          <InputField
+            placeholder={user.username}
+            type="text"
+            label="Username"
+            value={user.username}
+          />
+          <InputField
+            placeholder="Email"
+            type="text"
+            label="Email Address"
+            value={user.email}
+          />
         </>
       )}
       <div
