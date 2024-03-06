@@ -23,12 +23,7 @@ const GeneralProfileInformation = () => {
     }
   }, [user]);
 
-  useEffect(() => {
-    console.log("username: ", username);
-  }, [username]);
-
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("event.target.value: ", event.target.value);
     setUsername(event.target.value);
   };
 
@@ -44,7 +39,6 @@ const GeneralProfileInformation = () => {
         email
       );
       if (isUpdate) {
-        console.log("User updated");
         localStorage.setItem(
           "designify_user",
           JSON.stringify({ ...user, username, email })

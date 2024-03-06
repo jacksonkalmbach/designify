@@ -5,4 +5,6 @@ export type UserType = {
   photoUrl: string;
   username: string;
   uid: string;
+  location?: string | null;
+  bio?: string | null;
 };
