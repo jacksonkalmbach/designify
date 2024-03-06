@@ -8,7 +8,7 @@ import {
 } from "./Styles";
 import { Outlet } from "react-router-dom";
 import { getUserFromDatabaseByUid } from "../../utils/user/userDatabaseUtils";
-import EditCategoriesMenu from "./components/EditCategoriesMenu";
+import EditCategoriesMenu from "./routes/EditCategoriesMenu";
 
 const categoriesObj: Record<string, string> = {
   "/": "Profile",

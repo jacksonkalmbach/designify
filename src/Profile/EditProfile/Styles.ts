@@ -29,6 +29,7 @@ export const EditProfileTitle = styled.h1`
 
 export const EditRouteWrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   flex-grow: 1;
   box-sizing: border-box;
@@ -36,5 +37,4 @@ export const EditRouteWrapper = styled.div`
   align-items: center;
   padding: 20px;
   gap: 20px;
-  height: 100%;
 `;

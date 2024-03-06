@@ -14,8 +14,9 @@ import PricingPage from "./Pricing";
 import { useEffect } from "react";
 import { Theme } from "@radix-ui/themes";
 import EditProfile from "./Profile/EditProfile";
-import GeneralProfileInformation from "./Profile/EditProfile/components/General";
-import AccountInformation from "./Profile/EditProfile/components/Account";
+import GeneralProfileInformation from "./Profile/EditProfile/routes/General";
+import AccountInformation from "./Profile/EditProfile/routes/Account";
+import NofitificationSettings from "./Profile/EditProfile/routes/Notifications";
 
 function App() {
   // const navigate = useNavigate();
@@ -43,7 +44,10 @@ function App() {
               <Route index element={<GeneralProfileInformation />} />
               <Route path={"account"} element={<AccountInformation />} />
               <Route path={"social"} element={<>Social</>} />
-              <Route path={"notifications"} element={<>Notifications</>} />
+              <Route
+                path={"notifications"}
+                element={<NofitificationSettings />}
+              />
               <Route path={"billing"} element={<>Billing</>} />
             </Route>
           </Routes>
