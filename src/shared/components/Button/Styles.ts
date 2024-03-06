@@ -3,6 +3,7 @@ import { bodyTextRegular } from "../../utils/fonts";
 
 interface ButtonProps {
   variant?: "primary" | "outlined" | "ghost";
+  disabled?: boolean;
 }
 
 export const ButtonContainer = styled.button<ButtonProps>`
@@ -10,7 +11,6 @@ export const ButtonContainer = styled.button<ButtonProps>`
   gap: 6px;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   width: 100%;
   height: 40px;
   padding: 12px;
@@ -35,6 +35,9 @@ export const ButtonContainer = styled.button<ButtonProps>`
       `;
     }
   }}
+
+  cursor: ${(props: ButtonProps) =>
+    props.disabled ? "not-allowed" : "pointer"};
 
   &:hover {
     background-color: #f6f6f6;

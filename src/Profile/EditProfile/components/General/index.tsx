@@ -12,7 +12,7 @@ interface OutletContextType {
 
 const GeneralProfileInformation = () => {
   const { user } = useOutletContext<OutletContextType>();
-
+  const [isUpdated, setIsUpdated] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
 
@@ -44,11 +44,15 @@ const GeneralProfileInformation = () => {
         email
       );
       if (isUpdate) {
-        console.log("User updated successfully");
+        console.log("User updated");
         localStorage.setItem(
           "designify_user",
           JSON.stringify({ ...user, username, email })
         );
+        setTimeout(() => {
+          setIsUpdated(false);
+        }, 2000);
+        setIsUpdated(true);
       }
     };
     update();
@@ -82,7 +86,12 @@ const GeneralProfileInformation = () => {
         }}
       >
         <div style={{ width: "150px" }}>
-          <Button text="Save Changes" onClick={updateUserUsernameEmail} />
+          <Button
+            text={isUpdated ? "Saved" : "Save Changes"}
+            icon={isUpdated ? "checkmark" : null}
+            onClick={updateUserUsernameEmail}
+            disabled={isUpdated}
+          />
         </div>
       </div>
     </>
