@@ -18,13 +18,13 @@ import GeneralProfileInformation from "./Profile/EditProfile/components/General"
 import AccountInformation from "./Profile/EditProfile/components/Account";
 
 function App() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const user = localStorage.getItem("designify_user");
-    if (user !== null) {
-      navigate("/inspiration");
-    }
-  }, []);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   const user = localStorage.getItem("designify_user");
+  //   if (user !== null) {
+  //     navigate("/inspiration");
+  //   }
+  // }, []);
 
   return (
     <>

@@ -54,3 +54,22 @@ export const getAllUserPostsFromDatabaseByUsername = async (
   const posts = await response.json();
   return posts;
 };
+
+export const updateUsernameEmailInDatabase = async (
+  uid: string,
+  username: string,
+  email: string
+) => {
+  const response = await fetch(`http://localhost:3001/users/username-email/${uid}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username,
+      email,
+    }),
+  });
+  const userUpdated = await response.json();
+  return userUpdated;
+};

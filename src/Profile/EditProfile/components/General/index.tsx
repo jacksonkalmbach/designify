@@ -1,8 +1,10 @@
+import React, { useEffect, useState } from "react"; // Ensure useState is imported
 import styled from "styled-components";
 import InputField from "../../../../shared/components/InputField";
 import Button from "../../../../shared/components/Button";
 import { useOutletContext } from "react-router-dom";
 import { UserType } from "../../../../types/userTypes";
+import { updateUsernameEmailInDatabase } from "../../../../utils/user/userDatabaseUtils";
 
 interface OutletContextType {
   user: UserType;
@@ -11,21 +13,64 @@ interface OutletContextType {
 const GeneralProfileInformation = () => {
   const { user } = useOutletContext<OutletContextType>();
 
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+
+  useEffect(() => {
+    if (user) {
+      setUsername(user.username);
+      setEmail(user.email);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    console.log("username: ", username);
+  }, [username]);
+
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("event.target.value: ", event.target.value);
+    setUsername(event.target.value);
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const updateUserUsernameEmail = () => {
+    const update = async () => {
+      const isUpdate = await updateUsernameEmailInDatabase(
+        user.uid,
+        username,
+        email
+      );
+      if (isUpdate) {
+        console.log("User updated successfully");
+        localStorage.setItem(
+          "designify_user",
+          JSON.stringify({ ...user, username, email })
+        );
+      }
+    };
+    update();
+  };
+
   return (
     <>
-      {user && (
+      {username !== "" && (
         <>
           <InputField
-            placeholder={user.username}
+            placeholder="Username"
             type="text"
             label="Username"
-            value={user.username}
+            value={username}
+            onChange={handleUsernameChange}
           />
           <InputField
-            placeholder="Email"
+            placeholder="Email Address"
             type="text"
             label="Email Address"
-            value={user.email}
+            value={email}
+            onChange={handleEmailChange}
           />
         </>
       )}
@@ -37,7 +82,7 @@ const GeneralProfileInformation = () => {
         }}
       >
         <div style={{ width: "150px" }}>
-          <Button text="Save Changes" onClick={() => {}} />
+          <Button text="Save Changes" onClick={updateUserUsernameEmail} />
         </div>
       </div>
     </>

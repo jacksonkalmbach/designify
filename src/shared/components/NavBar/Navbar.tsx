@@ -59,7 +59,7 @@ const Navbar = () => {
               username={userObj.username}
               variant="small"
               size="large"
-              handleClick={() => console.log("User Card Clicked")}
+              handleClick={() => {}}
             />
           ) : (
             <div style={{ width: "100px" }}>
@@ -91,7 +91,7 @@ const Navbar = () => {
             username="jacksonkalmbach"
             variant="small"
             size="large"
-            handleClick={() => console.log("User Card Clicked")}
+            handleClick={() => navigate(`${userObj.username}`)}
           />
         </>
       )}

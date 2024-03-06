@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { color } from "../../utils/styles";
 import { bodyTextBold, bodyTextRegular } from "../../utils/fonts";
 
@@ -7,13 +8,32 @@ interface InputFieldProps {
   type: string;
   label: string;
   value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputField = ({ placeholder, type, label, value }: InputFieldProps) => {
+const InputField = ({
+  placeholder,
+  type,
+  label,
+  value,
+  onChange,
+}: InputFieldProps) => {
+  const [inputValue, setInputValue] = useState(value);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    onChange && onChange(e);
+  };
+
   return (
     <StyledInputContainer>
       <StyledLabel>{label}</StyledLabel>
-      <StyledInputField type={type} placeholder={placeholder} value={value} />
+      <StyledInputField
+        type={type}
+        placeholder={placeholder}
+        value={inputValue}
+        onChange={handleInputChange}
+      />
     </StyledInputContainer>
   );
 };
