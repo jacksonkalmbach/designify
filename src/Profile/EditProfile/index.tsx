@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   EditProfileContainer,
   EditProfileTitle,
@@ -12,15 +13,15 @@ import EditCategoriesMenu from "./components/EditCategoriesMenu";
 const categoriesObj: Record<string, string> = {
   "/": "Profile",
   account: "Account",
-  social: "Social",
+  social: "Social Accounts",
   notifications: "Notifications",
   billing: "Billing",
 };
 
 const EditProfile = () => {
   const [user, setUser] = useState(null);
-  const windowPath = window.location.pathname;
-  const activeCategory = windowPath.split("/")[3];
+  const location = useLocation();
+  const activeCategory = location.pathname.split("/")[3];
 
   const currentUserString = localStorage.getItem("designify_user");
   const currentUser = currentUserString ? JSON.parse(currentUserString) : null;
@@ -42,7 +43,8 @@ const EditProfile = () => {
   return (
     <EditProfileContainer>
       <EditProfileTitle>
-        Jackson Kalmbach<span style={{ color: "gray" }}>{" / "}</span>
+        {currentUser.first_name + " " + currentUser.last_name}
+        <span style={{ color: "gray" }}>{" / "}</span>
         {categoriesObj[activeCategory] === undefined
           ? "General"
           : categoriesObj[activeCategory]}

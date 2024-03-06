@@ -15,7 +15,6 @@ interface OutletContextType {
 
 const AccountInformation = () => {
   const { user } = useOutletContext<OutletContextType>();
-  console.log(user);
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [location, setLocation] = useState<string | undefined>();
@@ -23,7 +22,6 @@ const AccountInformation = () => {
   useEffect(() => {
     if (user) {
       const fullName = `${user.first_name} ${user.last_name}`;
-      console.log(fullName);
       setName(fullName);
     }
   }, [user]);
