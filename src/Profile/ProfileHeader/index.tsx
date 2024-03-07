@@ -15,6 +15,7 @@ import {
   checkIfUserIsFollowing,
   followUser,
   getFollowerAndFollowingCount,
+  unfollowUser,
 } from "../../utils/user/userDatabaseUtils";
 
 interface ProfileHeaderProps {
@@ -55,8 +56,8 @@ const ProfileHeader = ({
     const totalFollowers = async () => {
       try {
         const response = await getFollowerAndFollowingCount(username);
-        setFollowerCount(response.followersCount);
-        setFollowingCount(response.followingCount);
+        setFollowerCount(Number(response.followersCount));
+        setFollowingCount(Number(response.followingCount));
       } catch (error) {
         console.error("Failed to get follower count: ", error);
       }
@@ -64,9 +65,19 @@ const ProfileHeader = ({
 
     checkIfFollowing();
     totalFollowers();
-  }, [currentUser, username]);
+  }, [username]);
 
-  const handleFollowUnfollow = () => {};
+  const handleFollowUnfollow = () => {
+    if (isFollowing) {
+      setIsFollowing(false);
+      setFollowerCount(followerCount - 1);
+      unfollowUser(currentUser.uid, username);
+    } else {
+      setIsFollowing(true);
+      setFollowerCount(followerCount + 1);
+      followUser(currentUser.uid, username);
+    }
+  };
 
   return (
     <ProfileHeaderContainer>
@@ -92,12 +103,12 @@ const ProfileHeader = ({
                   style={{ display: "flex", gap: "10px", alignItems: "center" }}
                 >
                   <ProfileHeaderText>
-                    {followerCount}{" "}
+                    {followerCount.toLocaleString()}{" "}
                     {followerCount === 1 ? "Follower" : "Followers"}
                   </ProfileHeaderText>
                   <span>•</span>
                   <ProfileHeaderText>
-                    {followingCount} Following
+                    {followingCount.toLocaleString()} Following
                   </ProfileHeaderText>
                 </div>
               </>

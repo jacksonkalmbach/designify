@@ -87,7 +87,7 @@ export const checkIfUserIsFollowing = async (uid: string, username: string) => {
 
 export const followUser = async (
   followerUid: string,
-  followedUsername: string
+  followingUsername: string
 ) => {
   const response = await fetch(`http://localhost:3001/users/follow`, {
     method: "POST",
@@ -96,12 +96,35 @@ export const followUser = async (
     },
     body: JSON.stringify({
       followerUid,
-      followedUsername,
+      followingUsername,
     }),
   });
 
   if (!response.ok) {
     throw new Error("Failed to follow user");
+  }
+
+  const userUpdated = await response.json();
+  return userUpdated;
+};
+
+export const unfollowUser = async (
+  followerUid: string,
+  followingUsername: string
+) => {
+  const response = await fetch(`http://localhost:3001/users/unfollow`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      followerUid,
+      followingUsername,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to unfollow user");
   }
 
   const userUpdated = await response.json();

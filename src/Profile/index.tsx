@@ -46,7 +46,7 @@ const ProfilePage = () => {
 
     fetchUser();
     fetchUserPosts();
-  }, [userPath]);
+  }, [userPath, username]);
 
   return (
     <ProfileWrapper>
