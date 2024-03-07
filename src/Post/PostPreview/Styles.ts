@@ -26,6 +26,7 @@ export const PostCreator = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 `;
 
 export const PostCreatorImage = styled.img`

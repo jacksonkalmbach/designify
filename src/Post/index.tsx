@@ -20,80 +20,87 @@ import { useParams } from "react-router-dom";
 const PostPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [postLinks, setPostLinks] = useState([]);
+  const [postData, setPostData] = useState<any>();
 
   useEffect(() => {
     try {
-      const fetchPostLinks = async () => {
-        const response = await fetch(`http://localhost:3001/posts/${id}/links`);
+      const fetchPost = async () => {
+        const response = await fetch(`http://localhost:3001/posts/${id}`);
         if (response.ok) {
-          const links = await response.json();
-          setPostLinks(links);
+          const data = await response.json();
+          console.log("postdata", data);
+          setPostData(data);
         }
       };
-      fetchPostLinks();
+      fetchPost();
     } catch (error) {
       console.error("Failed to fetch post:", error);
     }
   }, [id]);
 
   return (
-    <PostPageContainer>
-      <ButtonContainer>
-        <Button
-          icon="arrowLeft"
-          text="Back"
-          variant="ghost"
-          onClick={() => navigate("/inspiration")}
-        />
-      </ButtonContainer>
-      <ImageAndItemsContainer>
-        <PostImageContainer>
-          <img
-            src={sohoLoftImage}
-            alt="Post"
-            style={{ height: "100%", width: "100%" }}
+    postData && (
+      <PostPageContainer>
+        <ButtonContainer>
+          <Button
+            icon="arrowLeft"
+            text="Back"
+            variant="ghost"
+            onClick={() => navigate("/inspiration")}
           />
-        </PostImageContainer>
-        <UserCard
-          name="jacksonkalmbach"
-          username="jacksonkalmbach"
-          variant="large"
-          size="large"
-          handleClick={() => navigate("/jacksonkalmbach")}
-        />
+        </ButtonContainer>
+        <ImageAndItemsContainer>
+          <div>
+            <PostImageContainer>
+              <img
+                src={postData.image_url}
+                alt="Post"
+                style={{ height: "100%", width: "100%" }}
+              />
+            </PostImageContainer>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "start",
+                width: "100%",
+              }}
+            >
+              <UserCard
+                name={postData.username}
+                username={postData.username}
+                imageUrl={postData.photo_url}
+                variant="large"
+                size="large"
+                handleClick={() => navigate(`/${postData.username}`)}
+              />
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              flexGrow: "1",
+            }}
+          >
+            <h3>SHOP THE LOOK</h3>
+            <ItemLinksContainer></ItemLinksContainer>
+          </div>
+        </ImageAndItemsContainer>
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            flexGrow: "1",
+            width: "100%",
+            justifyContent: "space-between",
           }}
         >
-          <h3>SHOP THE LOOK</h3>
-          <ItemLinksContainer>
-            {postLinks.map((link: { id: number }) => (
-              <ItemLink key={link.id} {...link} />
-            ))}
-          </ItemLinksContainer>
+          <div>More from [creator]</div>
+          <div onClick={() => navigate("/jacksonkalmbach")}>View all</div>
         </div>
-      </ImageAndItemsContainer>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "space-between",
-        }}
-      >
-        <div>More from [creator]</div>
-        <div onClick={() => navigate("/jacksonkalmbach")}>View all</div>
-      </div>
-      <MorePostsContainer>
-        <PostPreview id={3} />
-        <PostPreview id={3} />
-        <PostPreview id={3} />
-        <PostPreview id={3} />
-      </MorePostsContainer>
-    </PostPageContainer>
+        <MorePostsContainer>
+          {/* <PostPreview id={3} creator="jacksonkalmbach" /> */}
+        </MorePostsContainer>
+      </PostPageContainer>
+    )
   );
 };
 

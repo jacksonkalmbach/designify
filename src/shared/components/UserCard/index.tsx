@@ -11,6 +11,7 @@ interface Props {
   variant: "small" | "large";
   size: "small" | "large";
   handleClick: () => void;
+  isMenu?: boolean;
 }
 
 const UserCard = ({
@@ -19,6 +20,7 @@ const UserCard = ({
   username,
   variant,
   size,
+  isMenu,
   handleClick,
 }: Props) => {
   const navigate = useNavigate();
@@ -34,7 +36,7 @@ const UserCard = ({
         />
       </ImageContainer>
       {variant === "large" && <span>{name}</span>}
-      <CgChevronDown size={20} />
+      {isMenu && <CgChevronDown size={20} />}
     </StyledUserCard>
   );
 };

@@ -12,12 +12,15 @@ import Likes from "./Likes";
 
 interface Props {
   id: number;
-  imageUrl?: string;
+  imageUrl: string;
+  creator: string;
+  creatorPhotoUrl: string;
 }
 
-const PostPreview = ({ id, imageUrl }: Props) => {
+const PostPreview = ({ id, imageUrl, creator, creatorPhotoUrl }: Props) => {
   const navigate = useNavigate();
   const handleClick = (id: number) => {
+    console.log("id", id);
     navigate(`/post/${id}`);
   };
 
@@ -31,11 +34,10 @@ const PostPreview = ({ id, imageUrl }: Props) => {
         />
       </StyledImageContainer>
       <PostCreatorAndLikes>
-        <PostCreator>
-          <PostCreatorImage src="https://media.licdn.com/dms/image/D4E03AQFseatAMo8cnA/profile-displayphoto-shrink_800_800/0/1679333450208?e=1714608000&v=beta&t=s9Iv2U39h4fMAhGg3XisMhrh1c-Ioih8hu57_r3QMdc" />
-          <PostCreatorName>jacksonkalmbach</PostCreatorName>
+        <PostCreator onClick={() => navigate(`/${creator}`)}>
+          <PostCreatorImage src={creatorPhotoUrl} />
+          <PostCreatorName>{creator}</PostCreatorName>
         </PostCreator>
-
         <Likes count={10} />
       </PostCreatorAndLikes>
     </StyledPostContainer>

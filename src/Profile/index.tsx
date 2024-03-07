@@ -49,8 +49,8 @@ const ProfilePage = () => {
   }, [userPath, username]);
 
   return (
-    <ProfileWrapper>
-      {user && (
+    user && (
+      <ProfileWrapper>
         <ProfileHeader
           firstName={user.firstName}
           lastName={user.lastName}
@@ -58,9 +58,9 @@ const ProfilePage = () => {
           photoUrl={user.photoUrl}
           isCurrentUser={currentUser && currentUser.username === user.username}
         />
-      )}
-      <ProfileMedia />
-    </ProfileWrapper>
+        <ProfileMedia username={user.username} />
+      </ProfileWrapper>
+    )
   );
 };
 

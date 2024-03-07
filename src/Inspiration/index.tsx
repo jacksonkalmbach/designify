@@ -11,12 +11,26 @@ import DiscoverCategories from "./components/DiscoverCategories";
 import styled from "styled-components";
 import { DropdownMenu } from "@radix-ui/themes";
 import Dropdown from "../shared/components/Dropdown";
+import { useEffect, useState } from "react";
 
 const InspirationPage = () => {
-  const posts: any = [];
-  // for (let i = 1; i <= 20; i++) {
-  //   posts.push(<PostPreview id={i} imageUrl={i === 2 ? sohoImage : ""} />);
-  // }
+  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    try {
+      const fetchPosts = async () => {
+        const response = await fetch("http://localhost:3001/posts");
+        const data = await response.json();
+        setPosts(data);
+        console.log("data", data);
+        setLoading(false);
+      };
+      fetchPosts();
+    } catch (error) {
+      console.error("Failed to fetch posts:", error);
+    }
+  }, []);
 
   const skeletons = [];
   for (let i = 1; i <= 8; i++) {
@@ -38,15 +52,25 @@ const InspirationPage = () => {
       }}
     >
       <>
-        <FiltersAndSortsContainer>
+        {/* <FiltersAndSortsContainer>
           <Dropdown
             options={["Popular", "New", "Following"]}
             defaultOption="Popular"
           />
           <DiscoverCategories />
-        </FiltersAndSortsContainer>
+        </FiltersAndSortsContainer> */}
         <StyledInspirationPageContainer>
-          {posts.length > 0 ? posts : skeletons}
+          {loading
+            ? skeletons
+            : posts.map((post: any) => (
+                <PostPreview
+                  key={post.post_id}
+                  id={post.post_id}
+                  imageUrl={post.image_url}
+                  creator={post.username}
+                  creatorPhotoUrl={post.photo_url}
+                />
+              ))}
         </StyledInspirationPageContainer>
       </>
     </div>
