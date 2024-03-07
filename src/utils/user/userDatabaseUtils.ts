@@ -60,16 +60,59 @@ export const updateUsernameEmailInDatabase = async (
   username: string,
   email: string
 ) => {
-  const response = await fetch(`http://localhost:3001/users/username-email/${uid}`, {
-    method: "PATCH",
+  const response = await fetch(
+    `http://localhost:3001/users/username-email/${uid}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+      }),
+    }
+  );
+  const userUpdated = await response.json();
+  return userUpdated;
+};
+
+export const checkIfUserIsFollowing = async (uid: string, username: string) => {
+  const response = await fetch(
+    `http://localhost:3001/users/follows/${uid}/${username}`
+  );
+  const isFollowing = await response.json();
+  return isFollowing;
+};
+
+export const followUser = async (
+  followerUid: string,
+  followedUsername: string
+) => {
+  const response = await fetch(`http://localhost:3001/users/follow`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      username,
-      email,
+      followerUid,
+      followedUsername,
     }),
   });
+
+  if (!response.ok) {
+    throw new Error("Failed to follow user");
+  }
+
   const userUpdated = await response.json();
   return userUpdated;
+};
+
+// get follow count
+export const getFollowerAndFollowingCount = async (username: string) => {
+  const response = await fetch(
+    `http://localhost:3001/users/follow-count/${username}`
+  );
+  const followCount = await response.json();
+  return followCount;
 };

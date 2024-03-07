@@ -14,6 +14,8 @@ const ProfilePage = () => {
   const { username } = useParams();
   const [user, setUser] = useState<UserType | null>(null);
   const [userPosts, setUserPosts] = useState<any[]>([]);
+  const pathname = window.location.pathname;
+  const userPath = pathname.split("/")[1];
   const currentUserString = localStorage.getItem("designify_user");
   const currentUser = currentUserString ? JSON.parse(currentUserString) : null;
 
@@ -23,6 +25,10 @@ const ProfilePage = () => {
         if (currentUser && currentUser.username === username) {
           const userData = await getUserFromDatabaseByUsername(username);
           setUser(userData);
+        } else {
+          const userData = await getUserFromDatabaseByUsername(username);
+          setUser(userData);
+          console.log("userData", userData);
         }
       } catch (error) {
         console.error("Failed to fetch user: ", error);
@@ -40,7 +46,7 @@ const ProfilePage = () => {
 
     fetchUser();
     fetchUserPosts();
-  }, []);
+  }, [userPath]);
 
   return (
     <ProfileWrapper>
@@ -49,6 +55,8 @@ const ProfilePage = () => {
           firstName={user.firstName}
           lastName={user.lastName}
           username={user.username}
+          photoUrl={user.photoUrl}
+          isCurrentUser={currentUser && currentUser.username === user.username}
         />
       )}
       <ProfileMedia />

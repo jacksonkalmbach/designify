@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import {
   ProfileHeaderContainer,
   ProfileHeaderContent,
@@ -10,25 +11,69 @@ import {
   ProfileNameAndImage,
 } from "./Styles";
 import Button from "../../shared/components/Button";
+import {
+  checkIfUserIsFollowing,
+  followUser,
+  getFollowerAndFollowingCount,
+} from "../../utils/user/userDatabaseUtils";
 
 interface ProfileHeaderProps {
   firstName: string;
   lastName: string;
   username: string;
+  photoUrl: string;
+  isCurrentUser: boolean;
 }
 
 const ProfileHeader = ({
   firstName,
   lastName,
   username,
+  isCurrentUser,
+  photoUrl,
 }: ProfileHeaderProps) => {
   const navigate = useNavigate();
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [followerCount, setFollowerCount] = useState(0);
+  const [followingCount, setFollowingCount] = useState(0);
+  const currentUserString = localStorage.getItem("designify_user");
+  const currentUser = currentUserString ? JSON.parse(currentUserString) : null;
+
+  useEffect(() => {
+    const checkIfFollowing = async () => {
+      try {
+        const isFollowing = await checkIfUserIsFollowing(
+          currentUser.uid,
+          username
+        );
+        setIsFollowing(isFollowing);
+      } catch (error) {
+        console.error("Failed to check if following: ", error);
+      }
+    };
+
+    const totalFollowers = async () => {
+      try {
+        const response = await getFollowerAndFollowingCount(username);
+        setFollowerCount(response.followersCount);
+        setFollowingCount(response.followingCount);
+      } catch (error) {
+        console.error("Failed to get follower count: ", error);
+      }
+    };
+
+    checkIfFollowing();
+    totalFollowers();
+  }, [currentUser, username]);
+
+  const handleFollowUnfollow = () => {};
+
   return (
     <ProfileHeaderContainer>
       <ProfileHeaderContent>
         <ProfileNameAndImage>
           <ProfileHeaderImageContainer>
-            <ProfileHeaderImage src="https://media.licdn.com/dms/image/D4E03AQFseatAMo8cnA/profile-displayphoto-shrink_800_800/0/1679333450208?e=1715212800&v=beta&t=8c0ZQaKEjyVaLbIOJLpfZW0GtrzR8qV2_scsXGVUIuM" />
+            <ProfileHeaderImage src={photoUrl} />
           </ProfileHeaderImageContainer>
           <ProfileHeaderDetails>
             <ProfileHeaderName>{firstName + " " + lastName} </ProfileHeaderName>
@@ -46,18 +91,33 @@ const ProfileHeader = ({
                 <div
                   style={{ display: "flex", gap: "10px", alignItems: "center" }}
                 >
-                  <ProfileHeaderText>20 Followers</ProfileHeaderText>
+                  <ProfileHeaderText>
+                    {followerCount}{" "}
+                    {followerCount === 1 ? "Follower" : "Followers"}
+                  </ProfileHeaderText>
                   <span>•</span>
-                  <ProfileHeaderText>50 Following</ProfileHeaderText>
+                  <ProfileHeaderText>
+                    {followingCount} Following
+                  </ProfileHeaderText>
                 </div>
               </>
-              <div style={{ marginTop: "10px" }}>
-                <Button
-                  text="Edit Profile"
-                  variant="outlined"
-                  onClick={() => navigate(`/${username}/edit`)}
-                />
-              </div>
+              {isCurrentUser ? (
+                <div style={{ marginTop: "10px" }}>
+                  <Button
+                    text="Edit Profile"
+                    variant="outlined"
+                    onClick={() => navigate(`/${username}/edit`)}
+                  />
+                </div>
+              ) : (
+                <div style={{ marginTop: "10px" }}>
+                  <Button
+                    text={isFollowing ? "Following" : "Follow"}
+                    variant={isFollowing ? "outlined" : "primary"}
+                    onClick={() => handleFollowUnfollow()}
+                  />
+                </div>
+              )}
             </div>
           </ProfileHeaderDetails>
         </ProfileNameAndImage>
