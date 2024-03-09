@@ -10,7 +10,7 @@ interface OutletContextType {
   user: UserType;
 }
 
-const GeneralProfileInformation = () => {
+const GeneralSettings = () => {
   const { user } = useOutletContext<OutletContextType>();
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
   const [username, setUsername] = useState<string>("");
@@ -92,4 +92,4 @@ const GeneralProfileInformation = () => {
   );
 };
 
-export default GeneralProfileInformation;
+export default GeneralSettings;

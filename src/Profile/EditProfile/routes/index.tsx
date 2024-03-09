@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
-import AccountInformation from "./Account";
-import GeneralProfileInformation from "./General";
-import NofitificationSettings from "./Notifications";
+import AccountInformation from "./AccountSettings";
+import GeneralProfileInformation from "./GeneralSettings";
+import NofitificationSettings from "./NotificationSettings";
 import EditProfile from "../index";
 
 const EditProfileRoutes = () => {

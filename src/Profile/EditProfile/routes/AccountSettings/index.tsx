@@ -13,7 +13,7 @@ interface OutletContextType {
   } | null;
 }
 
-const AccountInformation = () => {
+const AccountSettings = () => {
   const { user } = useOutletContext<OutletContextType>();
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
@@ -64,4 +64,4 @@ const AccountInformation = () => {
   );
 };
 
-export default AccountInformation;
+export default AccountSettings;

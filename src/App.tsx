@@ -1,9 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import "./App.css";
-import "@radix-ui/themes/styles.css";
+
 import Navbar from "./shared/components/NavBar/Navbar";
-import { StyledPageContainer } from "./shared/containers/PageContainer/Styles";
 import Auth from "./Auth/Auth";
 import HomePage from "./Home";
 import InspirationPage from "./Inspiration";
@@ -11,22 +8,17 @@ import CreatePage from "./Create";
 import PostPage from "./Post";
 import ProfilePage from "./Profile";
 import PricingPage from "./Pricing";
-import { useEffect } from "react";
-import { Theme } from "@radix-ui/themes";
 import EditProfile from "./Profile/EditProfile";
-import GeneralProfileInformation from "./Profile/EditProfile/routes/General";
-import AccountInformation from "./Profile/EditProfile/routes/Account";
-import NofitificationSettings from "./Profile/EditProfile/routes/Notifications";
+import GeneralSettings from "./Profile/EditProfile/routes/GeneralSettings";
+import AccountSettings from "./Profile/EditProfile/routes/AccountSettings";
+import NofitificationSettings from "./Profile/EditProfile/routes/NotificationSettings";
+
+import { Theme } from "@radix-ui/themes";
+import { StyledPageContainer } from "./shared/containers/PageContainer/Styles";
+import "@radix-ui/themes/styles.css";
+import "./App.css";
 
 function App() {
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   const user = localStorage.getItem("designify_user");
-  //   if (user !== null) {
-  //     navigate("/inspiration");
-  //   }
-  // }, []);
-
   return (
     <>
       <Theme>
@@ -41,8 +33,8 @@ function App() {
             <Route path={"/post/:id"} element={<PostPage />} />
             <Route path={"/:username"} element={<ProfilePage />} />
             <Route path={"/:username/edit"} element={<EditProfile />}>
-              <Route index element={<GeneralProfileInformation />} />
-              <Route path={"account"} element={<AccountInformation />} />
+              <Route index element={<GeneralSettings />} />
+              <Route path={"account"} element={<AccountSettings />} />
               <Route path={"social"} element={<>Social</>} />
               <Route
                 path={"notifications"}
