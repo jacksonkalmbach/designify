@@ -12,14 +12,15 @@ import styled from "styled-components";
 import { DropdownMenu } from "@radix-ui/themes";
 import Dropdown from "../shared/components/Dropdown";
 
-import useFetch from "../hooks/useFetch";
+import useFetchData from "../hooks/useFetchData";
+import { PostType } from "../types/postTypes";
 
 const InspirationPage = () => {
   const {
     data: posts,
     loading,
     error,
-  } = useFetch<any>("http://localhost:3001/posts");
+  } = useFetchData<PostType[]>("http://localhost:3001/posts");
 
   const skeletons = [];
   for (let i = 1; i <= 8; i++) {
@@ -51,7 +52,8 @@ const InspirationPage = () => {
         <StyledInspirationPageContainer>
           {loading
             ? skeletons
-            : posts.map((post: any) => (
+            : posts &&
+              posts.map((post: any) => (
                 <PostPreview
                   key={post.post_id}
                   id={post.post_id}

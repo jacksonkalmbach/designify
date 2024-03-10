@@ -1,36 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   MediaContainer,
   MediaFilter,
   MediaFiltersContainer,
-  MediaItem,
   ProfileImagesWrapper,
 } from "./Styles";
+
 import PostPreview from "../../Post/PostPreview";
+import useFetchData from "../../hooks/useFetchData";
+import { PostType } from "../../types/postTypes";
 
 const ProfileMedia = ({ username }: { username: string }) => {
   const [mediaType, setMediaType] = useState<"designs" | "lookbooks" | "liked">(
     "designs"
   );
-  const [posts, setPosts] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    try {
-      const fetchPosts = async () => {
-        const response = await fetch(
-          `http://localhost:3001/posts/user/${username}`
-        );
-        const data = await response.json();
-        setPosts(data);
-        console.log("data", data);
-        setLoading(false);
-      };
-      fetchPosts();
-    } catch (error) {
-      console.error("Failed to fetch posts:", error);
-    }
-  }, []);
+  const {
+    data: posts,
+    loading,
+    error,
+  } = useFetchData<PostType[]>(
+    process.env.REACT_APP_SERVER_BASE_URL + `/posts/user/${username}`
+  );
 
   const handleClick = (type: "designs" | "lookbooks" | "liked") => {
     setMediaType(type);
@@ -58,15 +49,16 @@ const ProfileMedia = ({ username }: { username: string }) => {
         </MediaFilter>
       </MediaFiltersContainer>
       <MediaContainer>
-        {posts.map((post: any) => (
-          <PostPreview
-            key={post.post_id}
-            id={post.post_id}
-            imageUrl={post.image_url}
-            creator={post.username}
-            creatorPhotoUrl={post.photo_url}
-          />
-        ))}
+        {posts &&
+          posts.map((post: any) => (
+            <PostPreview
+              key={post.post_id}
+              id={post.post_id}
+              imageUrl={post.image_url}
+              creator={post.username}
+              creatorPhotoUrl={post.photo_url}
+            />
+          ))}
       </MediaContainer>
     </ProfileImagesWrapper>
   );
