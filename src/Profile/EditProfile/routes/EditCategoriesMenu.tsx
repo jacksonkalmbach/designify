@@ -84,6 +84,15 @@ const EditProfileCategoriesContainer = styled.div`
   justify-content: center;
   gap: 12px;
   min-width: 200px;
+
+  @media (max-width: 758px) {
+    width: 100vw;
+    justify-content: start;
+    box-sizing: border-box;
+    padding: 0 24px;
+    flex-direction: row;
+    overflow: scroll;
+  }
 `;
 
 export default EditCategoriesMenu;

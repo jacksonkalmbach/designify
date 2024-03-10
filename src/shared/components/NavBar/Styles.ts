@@ -7,7 +7,7 @@ export const NavBarContainer = styled.div`
   flex-direction: row;
   width: 100%;
   height: ${sizes.navbarHeight}px;
-  position: fixed;
+  position: sticky;
   top: 0;
   align-items: center;
   justify-content: space-between;

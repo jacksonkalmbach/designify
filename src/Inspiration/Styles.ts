@@ -10,11 +10,11 @@ export const StyledInspirationPageContainer = styled.div`
   box-sizing: border-box;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets and up */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktops and up */
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (min-width: 1200px) {

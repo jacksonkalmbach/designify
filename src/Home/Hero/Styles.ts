@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import {
-  bodyTextRegular,
-  headerBoldLarge,
-  subTitleRegular,
-} from "../../shared/utils/fonts";
+import { headerBoldLarge, subTitleRegular } from "../../shared/utils/fonts";
 
 export const StyledButtonContainer = styled.div`
   width: 150px;
@@ -33,9 +29,10 @@ export const StyledHeaderContainer = styled.div`
   background-opacity: 0.5;
 
   @media (max-width: 768px) {
+    position: static;
     width: 100%;
     left: 0;
-    height: 60%;
+    height: 100vh;
     box-shadow: none;
     background-color: transparent;
     justify-content: center;
@@ -64,7 +61,7 @@ export const StyledHeroContainer = styled.div`
   width: 100vw;
 
   @media (max-width: 768px) {
-    height: 60vh;
+    height: 100vh;
     flex-direction: column;
   }
 `;
@@ -85,7 +82,9 @@ export const StyledImageContainer = styled.div`
   top: 50px;
 
   @media (max-width: 768px) {
-    display: none;
+    position: static;
+    width: 100%;
+    height: 800px;
   }
 `;
 

@@ -77,10 +77,10 @@ const Navbar = () => {
 
       {pathname !== "/" && (
         <>
-          <>
+          {/* <>
             <NavLink title="Inspiration" path="/inspiration" />
             <NavLink title="Create" path="/create" />
-          </>
+          </> */}
 
           <StyledSearchContainer>
             <SearchBar />

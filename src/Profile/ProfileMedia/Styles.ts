@@ -48,6 +48,18 @@ export const MediaContainer = styled.div`
   gap: 20px;
   flex-wrap: wrap;
   box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const MediaItem = styled.div`

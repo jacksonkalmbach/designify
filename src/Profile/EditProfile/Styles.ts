@@ -16,6 +16,10 @@ export const EditWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 70%;
+
+  @media (max-width: 758px) {
+    flex-direction: column;
+  }
 `;
 
 export const EditProfileTitle = styled.h1`

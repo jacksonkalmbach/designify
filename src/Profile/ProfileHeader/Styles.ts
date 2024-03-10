@@ -24,6 +24,11 @@ export const ProfileNameAndImage = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 export const ProfileHeaderImageContainer = styled.div`
@@ -31,6 +36,11 @@ export const ProfileHeaderImageContainer = styled.div`
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const ProfileHeaderImage = styled.img`
@@ -50,6 +60,10 @@ export const ProfileHeaderName = styled.h1`
   ${headerBoldMedium}
   padding: 0;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const ProfileHeaderText = styled.p`

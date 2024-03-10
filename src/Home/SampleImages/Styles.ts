@@ -1,10 +1,14 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const ImageContainer = styled.div`
   display: flex;
   white-space: nowrap;
   overflow: hidden;
   width: 100vw;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const SampleImageContainer = styled.div`

@@ -23,7 +23,7 @@ const sections = [
   },
   {
     title: "Share and Collaborate",
-    text: "Got a design you’re proud of? Share it with the Designify community or on your social networks. Get feedback, suggestions, and collaborate with others to refine your creation.",
+    text: "Create a design you’re proud of? Share it with the Designify community! Get feedback, suggestions, and collaborate with others to refine your creation.",
     buttonText: "Get Started",
     image: bauhausLivingRoom,
     link: "auth",
@@ -61,6 +61,12 @@ const AboutContainer = styled.div`
   background-color: white;
   width: 100vw;
   min-height: 100vh;
+
+  @media (max-width: 758px) {
+    padding: 0;
+    gap: 0;
+    margin-top: 0;
+  }
 `;
 
 export default About;

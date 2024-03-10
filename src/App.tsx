@@ -13,12 +13,13 @@ import GeneralSettings from "./Profile/EditProfile/routes/GeneralSettings";
 import AccountSettings from "./Profile/EditProfile/routes/AccountSettings";
 import NofitificationSettings from "./Profile/EditProfile/routes/NotificationSettings";
 
+import { Provider } from "react-redux";
+import { store } from "./store";
+
 import { Theme } from "@radix-ui/themes";
 import { StyledPageContainer } from "./shared/containers/PageContainer/Styles";
 import "@radix-ui/themes/styles.css";
 import "./App.css";
-import { Provider } from "react-redux";
-import { store } from "./store";
 
 function App() {
   return (

@@ -8,6 +8,10 @@ export const StyledAuthPageContainer = styled.div`
   align-items: center;
   width: 100%;
   height: calc(100vh - 50px);
+
+  @media (max-width: 768px) {
+    
+  }
 `;
 
 export const StyledAuthFormContainer = styled.div`

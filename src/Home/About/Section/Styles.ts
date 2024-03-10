@@ -25,10 +25,9 @@ export const AboutTextContainer = styled(motion.div)<AboutProps>`
   z-index: 1;
 
   @media (max-width: 768px) {
-    width: 80%;
-    right: 0;
-    left: 0;
-    transform-x: (-50%);
+    position: static;
+    width: 100%;
+    box-shadow: none;
   }
 `;
 
@@ -39,8 +38,12 @@ export const TextAndImageContainer = styled.div`
   height: 500px;
 
   @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
     width: 100%;
-    border: 1px solid red;
+    height: 700px;
   }
 `;
 
@@ -51,7 +54,9 @@ export const AboutText = styled.p`
   ${bodyTextRegular}
 
   @media (max-width: 768px) {
+    text-align: center;
     font-size: 1.2rem;
+    width: 100%;
   }
 `;
 
@@ -71,7 +76,7 @@ export const AboutImageContainer = styled(motion.div)<AboutProps>`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    position: relative;
+    position: static;
     width: 100%;
   }
 `;
@@ -82,5 +87,7 @@ export const AboutTitle = styled.h1`
 
   @media (max-width: 768px) {
     font-size: 2rem;
+    text-align: center;
+    margin-bottom: 5px;
   }
 `;
