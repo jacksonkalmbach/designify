@@ -11,26 +11,15 @@ import DiscoverCategories from "./components/DiscoverCategories";
 import styled from "styled-components";
 import { DropdownMenu } from "@radix-ui/themes";
 import Dropdown from "../shared/components/Dropdown";
-import { useEffect, useState } from "react";
+
+import useFetch from "../hooks/useFetch";
 
 const InspirationPage = () => {
-  const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    try {
-      const fetchPosts = async () => {
-        const response = await fetch("http://localhost:3001/posts");
-        const data = await response.json();
-        setPosts(data);
-        console.log("data", data);
-        setLoading(false);
-      };
-      fetchPosts();
-    } catch (error) {
-      console.error("Failed to fetch posts:", error);
-    }
-  }, []);
+  const {
+    data: posts,
+    loading,
+    error,
+  } = useFetch<any>("http://localhost:3001/posts");
 
   const skeletons = [];
   for (let i = 1; i <= 8; i++) {
