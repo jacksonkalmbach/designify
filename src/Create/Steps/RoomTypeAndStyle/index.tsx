@@ -44,14 +44,18 @@ const RoomOption = ({ room }: { room: string }) => {
 };
 
 export const RoomTypeAndStyle = () => {
+  const [showMore, setShowMore] = React.useState(false);
+  const displayedRoomTypes = showMore ? ROOM_TYPES : ROOM_TYPES.slice(0, 6);
   return (
     <Container>
       <RoomOptionsContainer>
-        {ROOM_TYPES.slice(0, 6).map((roomType) => {
+        {displayedRoomTypes.map((roomType) => {
           return <RoomOption room={roomType} key={roomType} />;
         })}
       </RoomOptionsContainer>
-      <div>View More</div>
+      <div onClick={() => setShowMore(!showMore)}>
+        {showMore ? "View Less" : "View More"}
+      </div>
       <StyleOptionsContainer>
         {STYLE_OPTIONS.map((style: string) => {
           return <div>{style}</div>;
@@ -78,6 +82,14 @@ const RoomOptionsContainer = styled.div`
   grid-template-columns: repeat(6, 1fr);
   width: 100%;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const StyleOptionsContainer = styled.div`
@@ -103,4 +115,8 @@ const RoomTypeContainer = styled.div`
     scale: 0.95;
   }
   transition: all 0.2s ease-in;
+
+  @media (max-width: 480px) {
+    height: 100px;
+  }
 `;
