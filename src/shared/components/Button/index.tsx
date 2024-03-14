@@ -11,6 +11,7 @@ interface Props {
   onClick: () => void;
   variant?: "primary" | "outlined" | "ghost";
   disabled?: boolean;
+  isVisible?: boolean;
 }
 
 const Icons: Record<IconName, JSX.Element> = {
@@ -21,9 +22,21 @@ const Icons: Record<IconName, JSX.Element> = {
   checkmark: <IoMdCheckmark />,
 };
 
-const Button = ({ text, icon, onClick, variant, disabled }: Props) => {
+const Button = ({
+  text,
+  icon,
+  onClick,
+  variant,
+  disabled,
+  isVisible,
+}: Props) => {
   return (
-    <ButtonContainer onClick={onClick} variant={variant} disabled={disabled}>
+    <ButtonContainer
+      onClick={onClick}
+      variant={variant}
+      disabled={disabled}
+      isVisible={isVisible}
+    >
       {icon && Icons[icon]}
       {text && text}
     </ButtonContainer>

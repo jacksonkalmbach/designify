@@ -54,7 +54,7 @@ export const MediaContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
   @media (max-width: 768px) {

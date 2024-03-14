@@ -79,7 +79,7 @@ export const StyledImageContainer = styled.div`
   overflow: hidden;
   position: absolute;
   right: 0;
-  top: 50px;
+  top: 120px;
 
   @media (max-width: 768px) {
     position: static;

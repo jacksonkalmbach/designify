@@ -7,10 +7,9 @@ export const StyledAuthPageContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
 
   @media (max-width: 768px) {
-    
   }
 `;
 
